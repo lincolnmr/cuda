@@ -42,7 +42,7 @@ threads_per_block = 32
 blocks_per_grid = ( data.size + (threads_per_block - 1) )
 
 # iniciando o kernel
-my_kernel[blocks_per_grid, threads_per_block](data, o_array )
+my_kernel[blocks_per_grid, threads_per_block](data, o_array )  # esta linha esta apresentando erro, preciso perguntar para você na aula.
 
 # mostra o resultado
 print(data)
