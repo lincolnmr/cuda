@@ -16,15 +16,15 @@ def my_kernel(io_array, o_array):
 
     num = 0
     count = 0  
-    i = 0
-    while( i < io_array.size):
-      num = io_array[pos]
-      for n in io_array:
-        if num == n:
-          count += 1
-      o_array[num] = count
-      count = 0
-      i += 1
+    #i = 0
+    #while( i < io_array.size):
+    num = io_array[pos]
+    for n in io_array:
+      if num == n:
+        count += 1
+    o_array[num] = count
+    count = 0
+      #i += 1
 
     #if pos < io_array.size:  # Check array boundaries [0, 1] pos = 1
     #  io_array[pos] *= 2   # do the computation
@@ -42,7 +42,7 @@ threads_per_block = 32
 blocks_per_grid = ( data.size + (threads_per_block - 1) )
 
 # iniciando o kernel
-my_kernel[blocks_per_grid, threads_per_block](data, o_array )  # esta linha esta apresentando erro, preciso perguntar para você na aula.
+my_kernel[blocks_per_grid, threads_per_block](data, o_array )
 
 # mostra o resultado
 print(data)
