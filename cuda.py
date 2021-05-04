@@ -24,9 +24,6 @@ def my_kernel(io_array, o_array):
       o_array[num] = count
       count = 0
 
-    #if pos < io_array.size:  # Check array boundaries [0, 1] pos = 1
-    #  io_array[pos] *= 2   # do the computation
-
 # vetor com números aleatórios
 data = random.randint(10, size=(2**16))
 
