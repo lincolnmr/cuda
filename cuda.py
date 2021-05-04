@@ -16,24 +16,22 @@ def my_kernel(io_array, o_array):
 
     num = 0
     count = 0  
-    #i = 0
-    #while( i < io_array.size):
-    num = io_array[pos]
-    for n in io_array:
-      if num == n:
-        count += 1
-    o_array[num] = count
-    count = 0
-      #i += 1
+    if pos < io_array.size:
+      num = io_array[pos]
+      for n in io_array:
+        if num == n:
+          count += 1
+      o_array[num] = count
+      count = 0
 
     #if pos < io_array.size:  # Check array boundaries [0, 1] pos = 1
     #  io_array[pos] *= 2   # do the computation
 
 # vetor com números aleatórios
-data = random.randint(10, size=(10))
+data = random.randint(10, size=(2**16))
 
 # vetor vazio
-o_array = numpy.empty([10])
+o_array = numpy.zeros([10]) #inicia um array zerado, para não pegar lixos de memória
 
 # números de threads por bloco
 threads_per_block = 32
@@ -45,5 +43,17 @@ blocks_per_grid = ( data.size + (threads_per_block - 1) )
 my_kernel[blocks_per_grid, threads_per_block](data, o_array )
 
 # mostra o resultado
+print("VETOR INICIAL")
 print(data)
+print("VETOR FINAL COM NÚMEROS SOMADOS")
 print(o_array)
+
+'''
+i = 0
+soma = 0
+while( i < o_array.size):
+  soma = soma + o_array[i]
+  print( i, ":" , o_array[i] )
+  i= i + 1
+print( "T :", soma )
+'''
